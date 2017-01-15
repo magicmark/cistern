@@ -1,0 +1,2 @@
+-e /home/markl/pieprompt
+ansicolors==1.0.2

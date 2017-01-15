@@ -1,0 +1,15 @@
+- name: Ensure scripts folder exists
+  file:
+    path: "{{ home }}/.scripts"
+    state: directory
+    mode: 0755
+
+- name: Symlink scripts
+  file:
+    src: "{{ item }}"
+    dest: "{{ home }}/.scripts/{{ item | basename }}"
+    state: link
+  with_fileglob:
+    - ./*.sh
+    - ./*.zsh
+    - ./*.py

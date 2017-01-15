@@ -1,0 +1,54 @@
+# Creates the folders, and symlinks the needed files.
+
+# There doesn't apparently appear to be a good way to recursively fetch a list of folders
+# in ansible, so do a workaround to fetch the folders we will create.
+- name: Fetch dotfiles folders
+  command: "find . ! -path . -type d"
+  args:
+    chdir: "{{ role_path }}/files/{{ dotfiles_group }}"
+  register: folders
+  changed_when: False
+
+- name: Ensure dotfile folders exist
+  file:
+    path: "{{ home }}/{{ item }}"
+    state: directory
+    mode: 0755
+  with_items: "{{ folders.stdout_lines }}"
+
+- name: Fetch dotfiles files
+  command: "find . ! -path . -type f"
+  args:
+    chdir: "{{ role_path }}/files/{{ dotfiles_group }}"
+  register: files
+  changed_when: False
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path }}/files/{{ dotfiles_group }}/{{ item }}"
+    dest: "{{ home }}/{{ item }}"
+    state: link
+  with_items: "{{ files.stdout_lines }}"
+
+- name: Set nvim symlink
+  file:
+    # For some reason, this doesn't work with a relative path (?)
+    src: "{{ role_path }}/files/common/.vimrc"
+    dest: "{{ home }}/.config/nvim/init.vim"
+    state: link
+  when: dotfiles_group == 'common'
+
+- name: Set .gitconfig
+  template:
+    src: ".gitconfig.j2"
+    dest: "{{ home }}/.gitconfig"
+    mode: 0664
+  when: dotfiles_group == 'common'
+
+- name: Dotfiles venv
+  pip:
+    virtualenv: "{{ home }}/.config/dotfiles/venv"
+    virtualenv_python: python3.5
+    requirements: "{{ home }}/.config/dotfiles/requirements.txt"
+    state: latest
+  when: dotfiles_group == 'common'

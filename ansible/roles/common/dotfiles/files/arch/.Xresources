@@ -1,0 +1,148 @@
+Xft.dpi: 180
+Xft.autohint: 0
+Xft.lcddefault: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+URxvt.font: xft:Hack:size=9:antialias=true,xft:Symbola
+URxvt.boldFont: xft:Hack:size=9:antialias=true:bold,xft:Symbola
+URxvt.scrollStyle: rxvt
+URxvt.scrollBar: false
+URxvt.pointerBlank: true
+
+! URxvt*letterSpace: -1
+
+
+URxvt.depth: 32
+URxvt.saveLines: 10000
+URxvt.internalBorder: 3
+!URxvt.lineSpace: 0
+URxvt.antialias: 1
+
+
+! Cursor
+URxvt.cursorBlink: true
+URxvt.cursorColor: #657b83
+URxvt.cursorUnderline: false
+
+URxvt.perl-ext-common: default,matcher,keyboard-select,clipboard
+URxvt.marcher.button: 11
+URxvt.url-launcher: google-chrome-stable
+! URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+URxvt.clipboard.autocopy: true
+ URxvt.keysym.Mod4-c: perl:clipboard:copy
+ URxvt.keysym.Mod4-v: perl:clipboard:paste
+ URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
+!URxvt.keysym.Mod2-Shift-c: perl:clipboard:copy
+!URxvt.keysym.Mod2-Shift-v: perl:clipboard:paste
+!URxvt.keysym.Mod-C-v: perl:clipboard:paste_escaped
+
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+! rofi
+rofi.modi: run
+rofi.font: Hack 16
+rofi.width: 40
+rofi.lines: 6
+rofi.columns: 1
+rofi.opacity: 80
+
+
+
+/* Rofi */
+#define r_bg   #1d2021
+#define r_fg   #ebdbb2
+#define r_hlfg #d65d0e
+
+! States: bg, fg, bgalt, hlbg, hlfg
+rofi.color-enabled: true
+rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
+rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
+rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
+! states: background, border
+rofi.color-window: r_bg,#d5c4a1
+
+Xcursor.theme: whiteglass
+Xcursor.size: 32
+
+/* https://github.com/morhetz/gruvbox-contrib/blob/master/xresources/gruvbox-dark.xresources */
+! -----------------------------------------------------------------------------
+! File: gruvbox-dark.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------------------------------
+
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
+
+/* https://github.com/morhetz/gruvbox-contrib/blob/master/urxvt256/gruvbox-urxvt256.xresources */
+! -----------------------------------------------------------------------------
+! File: gruvbox-urxvt256.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 13 Dec 2013
+! -----------------------------------------------------------------------------
+
+URxvt.color24:  #076678
+URxvt.color66:  #427b58
+URxvt.color88:  #9d0006
+URxvt.color96:  #8f3f71
+URxvt.color100: #79740e
+URxvt.color108: #8ec07c
+URxvt.color109: #83a598
+URxvt.color130: #af3a03
+URxvt.color136: #b57614
+URxvt.color142: #b8bb26
+URxvt.color167: #fb4934
+URxvt.color175: #d3869b
+URxvt.color208: #fe8019
+URxvt.color214: #fabd2f
+URxvt.color223: #ebdbb2
+URxvt.color228: #f2e5bc
+URxvt.color229: #fbf1c7
+URxvt.color230: #f9f5d7
+URxvt.color234: #1d2021
+URxvt.color235: #282828
+URxvt.color236: #32302f
+URxvt.color237: #3c3836
+URxvt.color239: #504945
+URxvt.color241: #665c54
+URxvt.color243: #7c6f64
+URxvt.color244: #928374
+URxvt.color245: #928374
+URxvt.color246: #a89984
+URxvt.color248: #bdae93
+URxvt.color250: #d5c4a1

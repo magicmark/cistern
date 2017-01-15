@@ -1,0 +1,107 @@
+# - name: Pacman Update
+#   pacman:
+#     update_cache: yes
+#     upgrade: yes
+#     force: yes
+
+# - name: Pacman Update
+#   pacman:
+#     update_cache: yes
+
+- name: Pacman Install Packages
+  pacman: name={{ item }} state=latest force=yes
+  with_items:
+    - alsa-utils
+    - ansible
+    - arandr
+    - asoundconf
+    - autoconf
+    - automake
+    - bison
+    - bluez-firmware
+    - bluez-utils
+    - broadcom-wl-dkms
+    - cpupower
+    - docker
+    - dunst
+    - feh
+    - flex
+    - gimp
+    - go
+    - google-chrome
+    - grub
+    - iputils
+    - iw
+    - jfsutils
+    - jshon
+    - lib32-fakeroot
+    - lib32-libltdl
+    - lib32-mesa-libgl
+    - licenses
+    - light-git
+    - logrotate
+    - lsof
+    - lvm2
+    - make
+    - man-db
+    - man-pages
+    - mbpfan-git
+    - mdadm
+    - mlocate
+    - mpv
+    - nano
+    - ncdu
+    - neovim
+    - netctl
+    - network-manager-applet
+    - ngrok
+    - ntp
+    - openssh
+    - openvpn-update-resolv-conf
+    - openvpn-update-systemd-resolved
+    - paprefs
+    - patch
+    - pavucontrol-gtk2
+    - pcmciautils
+    - pdftk-bin
+    - pkg-config
+    - powertop
+    - procps-ng
+    - pulseaudio-bluetooth
+    - py3status
+    - python-virtualenv
+    - ranger
+    - reiserfsprogs
+    - rfkill
+    - rofi
+    - ruby
+    - scrot
+    - stalonetray
+    - thermald
+    - tmux
+    - tree
+    - ttf-hack
+    - ttf-symbola
+    - ufw
+    - unzip
+    - usbutils
+    - vbetool
+    - vi
+    - wget
+    - which
+    - xcalib
+    - xcursor-themes
+    - xf86-input-mtrack
+    - xf86-video-nouveau
+    - xfce4-notifyd
+    - xfsprogs
+    - xkbset
+    - xorg-server
+    - xorg-server-devel
+    - xorg-server-utils
+    - xorg-xev
+    - xorg-xinit
+    - yaourt
+    - yarn
+    - zenity
+    - zsh

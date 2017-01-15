@@ -1,0 +1,7 @@
+# Path for dotfiles stuff
+export DOTFILES="$HOME/.config/dotfiles"
+export DF_VENV="$DOTFILES/venv"
+export SCRIPTS="$HOME/.scripts"
+
+# For oh-my-zsh
+export ZSH_CUSTOM="$DOTFILES/custom_ohmyzsh"

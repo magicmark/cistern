@@ -1,0 +1,20 @@
+- hosts: localhost
+  vars:
+    - user: "{{ lookup('env','USER') }}"
+    - home: "{{ lookup('env','HOME') }}"
+
+  roles:
+    # Run 'bootstrap' first to get env info
+    # TODO: better way of doing this?
+    - bootstrap
+
+    # Run common stuff
+    - { role: common/dotfiles, dotfiles_group: 'common'}
+    - common/scripts
+    - common/apps
+
+    # Arch Stuff
+    - { role: common/dotfiles, dotfiles_group: 'arch', when: is_arch }
+    - { role: arch/system-files, when: is_arch }
+    - { role: arch/systemd, when: is_arch }
+    - { role: arch/pacman, when: is_arch }

@@ -1,0 +1,23 @@
+- name: Determine if work machine
+  stat:
+    path: "{{ home }}/.work"
+  register: workfile
+
+- name: Set facts
+  set_fact:
+    is_home: "{{ not workfile.stat.exists }}"
+    is_work: "{{ workfile.stat.exists }}"
+    is_arch: "{{ ansible_distribution == 'Archlinux' }}"
+    is_linux: True
+
+- name: Set conditional facts - work
+  set_fact:
+    email: "markl@yelp.com"
+  when: is_work
+
+- name: Set conditional facts - home
+  set_fact:
+    email: "mark@larah.me"
+  when: is_home
+
+

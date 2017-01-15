@@ -1,0 +1,9 @@
+[Unit]
+Description=IRC Client Notifications
+
+[Service]
+ExecStart=/home/markl/GitApps/IRCNotify/client.arch.js
+
+[Install]
+WantedBy=default.target
+

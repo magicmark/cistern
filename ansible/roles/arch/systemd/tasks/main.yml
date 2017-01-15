@@ -1,0 +1,45 @@
+- name: Ensure user systemd folder exists
+  file:
+    path: "{{ home }}/.config/systemd/user"
+    state: directory
+    mode: 0755
+
+- name: Symlink user services + timers
+  file:
+    src: "{{ item }}"
+    dest: "{{ home }}/.config/systemd/user/{{ item | basename }}"
+    state: link
+  with_fileglob:
+    - ./user/*.service
+    - ./user/*.timer
+    - ./user/README.md
+
+- name: Symlink system services + timers
+  file:
+    src: "{{ item }}"
+    dest: "/etc/systemd/system/{{ item | basename }}"
+    state: link
+  become: yes
+  with_fileglob:
+    - ./system/*.service
+
+- name: Enable user services + timers
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+    user: yes
+  with_fileglob:
+    - battery-notifications.timer
+    - irc-notifications.service
+    - ssh-agent.service
+    - mopidy.service
+
+- name: Enable system services
+  systemd:
+    name: "{{ item | basename }}"
+    enabled: yes
+    user: no
+  become: yes
+  with_fileglob:
+    - ./system/*.service

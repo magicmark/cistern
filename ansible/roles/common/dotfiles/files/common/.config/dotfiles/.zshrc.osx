@@ -1,0 +1,23 @@
+alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+# Below is from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+
+# Disable Notification Center and remove the menu bar icon
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+local autoenv_file="$(brew --prefix autoenv)/activate.sh"
+if [[ -e "$autoenv_file" ]]; then
+    source "$autoenv_file"
+else
+    (>&2 echo "Could not source autoenv file!")
+fi

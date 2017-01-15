@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs battery notification checker every minute
+
+[Timer]
+OnBootSec=0
+OnUnitActiveSec=1min
+Unit=battery-notifications.service
+
+[Install]
+WantedBy=default.target

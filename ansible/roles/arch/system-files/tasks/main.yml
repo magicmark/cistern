@@ -1,0 +1,10 @@
+- name: Copy modprobe.d files
+  become: yes
+  file:
+    src: "{{ item }}"
+    dest: "/etc/modprobe.d/{{item | basename}}"
+    state: link
+  with_fileglob:
+    - ./etc/modprobe.d/*.conf
+
+

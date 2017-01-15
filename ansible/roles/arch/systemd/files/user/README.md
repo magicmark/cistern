@@ -1,0 +1,2 @@
+- The files in this root folder are linked from ansible
+- The folder default.target.wants and its contents are made by systemd

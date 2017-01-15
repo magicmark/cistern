@@ -1,0 +1,6 @@
+[Unit]
+Description=Battery Notifications
+
+[Service]
+Type=simple
+ExecStart=/home/markl/.scripts/battery-notifier.sh
