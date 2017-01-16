@@ -1,0 +1,7 @@
+- repo: https://github.com/willthames/ansible-lint.git
+  sha: v3.3.1
+  language_version: 3.4
+  hooks:
+    - id: ansible-lint
+      files: ansible/\.(yaml|yml)$
+
