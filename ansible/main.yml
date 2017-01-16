@@ -9,12 +9,12 @@
     - bootstrap
 
     # Run common stuff
-    - { role: common/dotfiles, dotfiles_group: 'common'}
+    - common/dotfiles
     - common/scripts
     - common/apps
 
     # Arch Stuff
-    - { role: common/dotfiles, dotfiles_group: 'arch', when: is_arch }
+    - { role: arch/dotfiles, when: is_arch }
     - { role: arch/system-files, when: is_arch }
     - { role: arch/systemd, when: is_arch }
     - { role: arch/pacman, when: is_arch }
