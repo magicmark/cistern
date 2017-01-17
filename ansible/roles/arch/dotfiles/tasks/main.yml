@@ -14,7 +14,9 @@
     path: "{{ home }}/{{ item }}"
     state: directory
     mode: 0755
-  with_items: "{{ folders.stdout_lines }}"
+  # TODO: Refactor default http://stackoverflow.com/a/41683255/4396258
+  # http://docs.ansible.com/ansible/playbooks_conditionals.html#loops-and-conditionals
+  with_items: "{{ folders.stdout_lines | default([]) }}"
 
 - name: Fetch dotfiles files
   command: "find . ! -path . -type f"
@@ -28,34 +30,4 @@
     src: "{{ role_path }}/files/{{ item }}"
     dest: "{{ home }}/{{ item }}"
     state: link
-  with_items: "{{ files.stdout_lines }}"
-
-- name: Set nvim symlink
-  file:
-    # For some reason, this doesn't work with a relative path (?)
-    src: "{{ role_path }}/files/.vimrc"
-    dest: "{{ home }}/.config/nvim/init.vim"
-    state: link
-
-- name: Set .gitconfig
-  template:
-    src: ".gitconfig.j2"
-    dest: "{{ home }}/.gitconfig"
-    mode: 0664
-
-- name: Dotfiles venv
-  pip:
-    virtualenv: "{{ home }}/.config/dotfiles/venv"
-    virtualenv_python: python3.5
-    requirements: "{{ home }}/.config/dotfiles/requirements.txt"
-    state: latest
-
-- name: vim folders
-  file:
-    path: "{{ home}}/.vim/{{ item }}"
-    state: directory
-    mode: 0755
-  with_items:
-    - backup_files
-    - swap_files
-    - undo_files
+  with_items: "{{ files.stdout_lines | default([]) }}"
