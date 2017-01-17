@@ -49,3 +49,13 @@
     virtualenv_python: python3.5
     requirements: "{{ home }}/.config/dotfiles/requirements.txt"
     state: latest
+
+- name: vim folders
+  file:
+    path: "{{ home}}/.vim/{{ item }}"
+    state: directory
+    mode: 0755
+  with_items:
+    - backup_files
+    - swap_files
+    - undo_files

@@ -38,6 +38,8 @@ if [ -z "$npm_config_prefix" ]; then
     fi
 fi
 
+# set up aactivator
+eval "$($DF_VENV/bin/aactivator init)"
 
 function cddot {
     cd "$DOTFILES" || exit

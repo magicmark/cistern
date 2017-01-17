@@ -8,7 +8,8 @@
     is_home: "{{ not workfile.stat.exists }}"
     is_work: "{{ workfile.stat.exists }}"
     is_arch: "{{ ansible_distribution == 'Archlinux' }}"
-    is_linux: True
+    is_linux: "{{ ansible_os_family != 'Darwin' }}"
+    is_mac: "{{ ansible_os_family == 'Darwin' }}"
 
 - name: Set conditional facts - work
   set_fact:
