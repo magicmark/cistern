@@ -1,2 +1,3 @@
 source $SCRIPTS/screens.zsh
-eval "$($HOME/GitApps/aactivator/./aactivator.py)"
+
+alias archey='archey3 --config=~/.config/archey3.cfg'
