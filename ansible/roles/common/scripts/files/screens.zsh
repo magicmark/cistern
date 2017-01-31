@@ -99,6 +99,15 @@ function screenset {
             --output eDP-1 --mode 2880x1800 --dpi 180 \
             --output DP-1 --dpi 180 --right-of eDP-1 $(_set_scaled_output 1.7 2560 1440 2880)"
 
+
+    elif [ "$1" == 'work2' ]; then
+
+        echo "Setting display for HP ????"
+        eval "xrandr \
+            --output eDP-1 --mode 2880x1800 --dpi 180 \
+            --output HDMI-1 --dpi 180 --right-of eDP-1 $(_set_scaled_output 1.8 1920 1200 2880)"
+
+
     elif [ "$1" == 'home' ]; then
         _set_home_dell
 

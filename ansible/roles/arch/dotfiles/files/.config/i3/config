@@ -63,7 +63,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-floating_modifier Mod1
+#floating_modifier Mod1
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -72,7 +72,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 bindsym $mod+n exec ~/.config/i3/scripts/rename
 
@@ -113,9 +113,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Apps and stuff
 bindsym $mod+p exec qutebrowser
 bindsym $mod4+1 exec --no-startup-id google-chrome-stable
-bindsym $mod+y exec --no-startup-id google-chrome-stable --app=https://www.youtube.com
+bindsym $mod+y exec --no-startup-id firefox --new-window https://www.youtube.com
+bindsym $mod+Shit+y floating toggle 
+#bindsym $mod+Shit+y floating enable geometry {"x": 0, "y": 0, "width": 150, "height": 150 }
 bindsym $mod4+l exec --no-startup-id lock -f Hack-Regular -t "Go away ath" -- scrot -z
 bindsym $mod4+0 exec scrot
+bindsym $mod4+9 exec ~/.config/i3/scripts/screenshot
 
 bindsym $mod+r mode "resize"
 
@@ -180,7 +183,7 @@ client.focused_inactive #1B3600 #1B3600 #888888 #FFFFFF
 client.unfocused #333333 #333333 #888888 #FFFFFF
 client.urgent #C20000 #C20000 #FFFFFF #FFFFFF
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 gaps inner 16
 gaps outer 10
 

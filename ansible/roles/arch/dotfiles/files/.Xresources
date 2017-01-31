@@ -12,13 +12,10 @@ URxvt.scrollStyle: rxvt
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 
-! URxvt*letterSpace: -1
-
 
 URxvt.depth: 32
 URxvt.saveLines: 10000
 URxvt.internalBorder: 3
-!URxvt.lineSpace: 0
 URxvt.antialias: 1
 
 
@@ -30,15 +27,11 @@ URxvt.cursorUnderline: false
 URxvt.perl-ext-common: default,matcher,keyboard-select,clipboard
 URxvt.marcher.button: 11
 URxvt.url-launcher: google-chrome-stable
-! URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 URxvt.clipboard.autocopy: true
- URxvt.keysym.Mod4-c: perl:clipboard:copy
- URxvt.keysym.Mod4-v: perl:clipboard:paste
- URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
-!URxvt.keysym.Mod2-Shift-c: perl:clipboard:copy
-!URxvt.keysym.Mod2-Shift-v: perl:clipboard:paste
-!URxvt.keysym.Mod-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.Mod4-c: perl:clipboard:copy
+URxvt.keysym.Mod4-v: perl:clipboard:paste
+URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
 
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
@@ -50,7 +43,6 @@ rofi.width: 40
 rofi.lines: 6
 rofi.columns: 1
 rofi.opacity: 80
-
 
 
 /* Rofi */
