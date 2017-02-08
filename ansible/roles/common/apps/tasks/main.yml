@@ -4,7 +4,7 @@
     state: directory
     mode: 0755
 
-- name: Install Arch GitApps
+- name: Install Common GitApps
   git:
     repo: "{{ item.url }}"
     dest: "{{ item.dest }}"
