@@ -1,0 +1,36 @@
+- name: Set nvim symlink
+  file:
+    # For some reason, this doesn't work with a relative path (?)
+    src: "{{ role_path }}/files/init.vim"
+    dest: "{{ home }}/.config/nvim/init.vim"
+    state: link
+
+- name: Set vim symlink
+  file:
+    # For some reason, this doesn't work with a relative path (?)
+    src: "{{ role_path }}/files/init.vim"
+    dest: "{{ home }}/.vimrc"
+    state: link
+
+- name: install plug.vim
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.local/share/nvim/site/autoload/plug.vim
+
+- name: nvim venv
+  pip:
+    virtualenv: "{{ home }}/.config/nvim/venv"
+    virtualenv_python: python3.5
+    requirements: "{{ role_path }}/files/requirements.txt"
+    state: latest
+
+- name: vim folders
+  file:
+    path: "{{ home}}/.vim/{{ item }}"
+    state: directory
+    mode: 0755
+  with_items:
+    - backup_files
+    - swap_files
+    - undo_files
+

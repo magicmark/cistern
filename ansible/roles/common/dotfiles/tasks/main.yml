@@ -30,13 +30,6 @@
     state: link
   with_items: "{{ files.stdout_lines }}"
 
-- name: Set nvim symlink
-  file:
-    # For some reason, this doesn't work with a relative path (?)
-    src: "{{ role_path }}/files/.vimrc"
-    dest: "{{ home }}/.config/nvim/init.vim"
-    state: link
-
 - name: Set .gitconfig
   template:
     src: ".gitconfig.j2"
@@ -49,13 +42,3 @@
     virtualenv_python: python3.5
     requirements: "{{ home }}/.config/dotfiles/requirements.txt"
     state: latest
-
-- name: vim folders
-  file:
-    path: "{{ home}}/.vim/{{ item }}"
-    state: directory
-    mode: 0755
-  with_items:
-    - backup_files
-    - swap_files
-    - undo_files

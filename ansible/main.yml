@@ -10,6 +10,7 @@
 
     # Run common stuff
     - common/dotfiles
+    - common/neovim
     - common/scripts
     - common/apps
 
