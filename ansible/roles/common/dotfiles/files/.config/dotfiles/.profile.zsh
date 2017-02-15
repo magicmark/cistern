@@ -38,6 +38,11 @@ if [ -z "$npm_config_prefix" ]; then
     fi
 fi
 
+# Set up Yarn
+if $(yarn --version &> /dev/null); then
+    export PATH="$PATH:`yarn global bin`"
+fi
+
 # set up aactivator
 eval "$($DF_VENV/bin/aactivator init)"
 
