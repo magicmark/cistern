@@ -1,3 +1,5 @@
 source $SCRIPTS/screens.zsh
 
 alias archey='archey3 --config=~/.config/archey3.cfg'
+alias top-cpu='top -o "%CPU"'
+

@@ -1,39 +1,36 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.local/share/nvim/plugged')
 " ========================================================
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'Yggdroot/indentLine'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'elzr/vim-json'
-" Plugin 'ervandew/supertab'
-" Plugin 'davidhalter/jedi-vim'
-"
-Plugin 'othree/yajs.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'elzr/vim-json'
+Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
-Plugin 'godlygeek/tabular'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'nvie/vim-flake8'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/tabular'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
+Plug 'nvie/vim-flake8'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " ========================================================
-call vundle#end()
+call plug#end()
 
 " ========================================================
 " Theme settings
@@ -69,6 +66,14 @@ endif
 
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
+
+
+" ========================================================
+" Shougo/deoplete settings
+" ========================================================
+let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = "$HOME/.config/nvim/venv/bin/python"
+let g:deoplete#sources#jedi#python_path = "$HOME/.config/nvim/venv/bin/python"
 
 " ========================================================
 " airblade/vim-gitgutter settings
@@ -146,15 +151,12 @@ let g:vim_json_syntax_conceal = 0
 set number
 
 " tabs to spaces
-"
 " size of a hard tabstop
 set tabstop=4
 " always uses spaces instead of tab characters
 set expandtab
 " size of an "indent"
 set shiftwidth=4
-" Sets the number of columns for a TAB
-set softtabstop=4   
 
 imap jj <Esc>
 
@@ -261,20 +263,3 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
-" https://github.com/davidhalter/jedi-vim/issues/31#issuecomment-9834698
-" Add the virtualenv's site-packages to vim path
-if has('python')
-py << EOF
-import os.path
-import sys
-import vim
-if 'DF_VENV' in os.environ:
-    project_base_dir = os.environ['DF_VENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-endif
-
-let g:python3_host_prog = "$DF_ENV/bin/python"

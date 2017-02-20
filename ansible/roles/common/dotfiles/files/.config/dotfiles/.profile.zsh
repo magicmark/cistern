@@ -41,6 +41,11 @@ fi
 # Set up n
 export N_PREFIX="$HOME/.n"
 
+# Set up Yarn
+if $(yarn --version &> /dev/null); then
+    export PATH="$PATH:`yarn global bin`"
+fi
+
 # set up aactivator
 eval "$($DF_VENV/bin/aactivator init)"
 
