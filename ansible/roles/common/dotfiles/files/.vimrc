@@ -14,7 +14,11 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'elzr/vim-json'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
+" Plugin 'davidhalter/jedi-vim'
+"
+Plugin 'othree/yajs.vim'
+
 Plugin 'godlygeek/tabular'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'junegunn/fzf'
@@ -142,12 +146,15 @@ let g:vim_json_syntax_conceal = 0
 set number
 
 " tabs to spaces
+"
 " size of a hard tabstop
 set tabstop=4
 " always uses spaces instead of tab characters
 set expandtab
 " size of an "indent"
 set shiftwidth=4
+" Sets the number of columns for a TAB
+set softtabstop=4   
 
 imap jj <Esc>
 
@@ -254,3 +261,20 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" https://github.com/davidhalter/jedi-vim/issues/31#issuecomment-9834698
+" Add the virtualenv's site-packages to vim path
+if has('python')
+py << EOF
+import os.path
+import sys
+import vim
+if 'DF_VENV' in os.environ:
+    project_base_dir = os.environ['DF_VENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endif
+
+let g:python3_host_prog = "$DF_ENV/bin/python"
