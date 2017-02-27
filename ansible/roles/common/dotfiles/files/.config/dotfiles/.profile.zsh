@@ -38,6 +38,14 @@ if [ -z "$npm_config_prefix" ]; then
     fi
 fi
 
+# Set up n
+export N_PREFIX="$HOME/.n"
+
+# Set up Yarn
+if $(yarn --version &> /dev/null); then
+    export PATH="$PATH:`yarn global bin`"
+fi
+
 # set up aactivator
 eval "$($DF_VENV/bin/aactivator init)"
 
@@ -92,4 +100,26 @@ function abspath {
             echo "$(pwd)/$1"
         fi
     fi
+}
+
+# http://vasir.net/blog/ubuntu/replace_string_in_multiple_files
+# replace text in files
+function rtif {
+    if [ ! -d "$1" ]; then
+        echo "$1 not a dir"
+        return 1
+    fi
+
+    if [ -z "$2" ] || [ -z "$3" ]; then
+        echo "operands empty"
+        return 1
+    fi
+
+    grep -rlI --null "$2" "$1/" | \
+        xargs -0 sed -i "s/$2/$3/g"
+}
+
+function delbranch {
+    git branch -d "$1"
+    git push origin ":$1"
 }

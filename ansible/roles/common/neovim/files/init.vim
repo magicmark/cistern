@@ -1,35 +1,36 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.local/share/nvim/plugged')
+" ========================================================
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'elzr/vim-json'
+Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'godlygeek/tabular'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
+Plug 'nvie/vim-flake8'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " ========================================================
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'Yggdroot/indentLine'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'elzr/vim-json'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'nvie/vim-flake8'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" ========================================================
-call vundle#end()
+call plug#end()
 
 " ========================================================
 " Theme settings
@@ -65,6 +66,14 @@ endif
 
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
+
+
+" ========================================================
+" Shougo/deoplete settings
+" ========================================================
+let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = "$HOME/.config/nvim/venv/bin/python"
+let g:deoplete#sources#jedi#python_path = "$HOME/.config/nvim/venv/bin/python"
 
 " ========================================================
 " airblade/vim-gitgutter settings
@@ -198,7 +207,7 @@ set nohlsearch
 
 set backspace=indent,eol,start
 
-" http://blog.mattcrampton.com/post/86216925656/move-vim-swp-files<Paste>
+" http://blog.mattcrampton.com/post/86216925656/move-vim-swp-files
 set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
 set undodir=~/.vim/undo_files//

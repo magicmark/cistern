@@ -4,7 +4,7 @@
     state: directory
     mode: 0755
 
-- name: Install Arch GitApps
+- name: Install Common GitApps
   git:
     repo: "{{ item.url }}"
     dest: "{{ item.dest }}"
@@ -14,11 +14,8 @@
     - {
         url: "https://github.com/robbyrussell/oh-my-zsh.git",
         dest: "{{ home }}/GitApps/oh-my-zsh",
-        type: common,
       }
     - {
         url: "git@github.com:Yelp/aactivator",
         dest: "{{ home }}/GitApps/aactivator",
-        type: linux
       }
-  when: (item.type == "common") or (item.type == "linux" and is_linux)

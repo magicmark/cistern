@@ -7,5 +7,5 @@ venv: Makefile requirements.txt
 	venv/bin/pre-commit install -f --install-hooks
 
 .PHONY: run
-run:
-	cd ansible; ansible-playbook main.yml
+run: venv
+	cd ansible; ../venv/bin/ansible-playbook main.yml
