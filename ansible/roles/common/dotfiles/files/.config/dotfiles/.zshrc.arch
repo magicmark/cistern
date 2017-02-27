@@ -1,2 +1,1 @@
 source $SCRIPTS/screens.zsh
-eval "$($HOME/GitApps/aactivator/./aactivator.py)"

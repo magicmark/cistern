@@ -14,10 +14,3 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Disable dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
-
-local autoenv_file="$(brew --prefix autoenv)/activate.sh"
-if [[ -e "$autoenv_file" ]]; then
-    source "$autoenv_file"
-else
-    (>&2 echo "Could not source autoenv file!")
-fi
