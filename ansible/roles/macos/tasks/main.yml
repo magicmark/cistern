@@ -5,13 +5,9 @@
 - name: Homebrew Install Packages
   homebrew: name={{ item }} state=latest
   with_items:
-    - Caskroom/cask/alfred2
-    - alfred
-    - cowsaw
     - ffmpeg
     - iperf
     - neovim/neovim/neovim
     - ssh-copy-id
     - tmux
-    - wget
     - wget
