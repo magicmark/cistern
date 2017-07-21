@@ -75,6 +75,5 @@ ${bottom_brace} $(__prompt_char) "
 
 
 PROMPT='$(__get_ps1)'
-RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
 
 ZLE_RPROMPT_INDENT=0

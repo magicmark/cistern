@@ -76,6 +76,10 @@ function preexec {
     fixtmux
 }
 
+function cdmess {
+    cd $(mktemp -d)
+}
+
 # http://stackoverflow.com/a/23002317/4396258
 function abspath {
     # generate absolute path from relative path
