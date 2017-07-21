@@ -29,15 +29,6 @@ export GOPATH=~/go
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOBIN"
 
-# Set up Node
-# TODO: investigate how to resolve this check
-if [ -z "$npm_config_prefix" ]; then
-    export NVM_DIR="$HOME/.nvm"
-    if [ -s "$NVM_DIR/nvm.sh" ]; then
-        source "$NVM_DIR/nvm.sh"
-    fi
-fi
-
 # set up aactivator
 eval "$($DF_VENV/bin/aactivator init)"
 
@@ -74,6 +65,10 @@ fi
 # TODO: change this preexec
 function preexec {
     fixtmux
+}
+
+function cdmess {
+    cd $(mktemp -d)
 }
 
 # http://stackoverflow.com/a/23002317/4396258
