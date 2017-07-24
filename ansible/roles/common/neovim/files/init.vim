@@ -12,9 +12,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'elzr/vim-json'
 Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-jedi'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'mxw/vim-jsx'
 
 Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
