@@ -12,11 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'elzr/vim-json'
 Plug 'ervandew/supertab'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-jedi'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'mxw/vim-jsx'
-
 Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'junegunn/fzf'
@@ -24,6 +20,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
@@ -41,6 +38,7 @@ syntax on
 filetype plugin indent on
 syntax enable
 set background=dark
+set clipboard=unnamed
 
 if $VIM_THEME == 'gruvbox'
     colorscheme gruvbox
@@ -158,6 +156,8 @@ set tabstop=4
 set expandtab
 " size of an "indent"
 set shiftwidth=4
+" Sets the number of columns for a TAB
+set softtabstop=4   
 
 imap jj <Esc>
 

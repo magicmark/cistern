@@ -19,3 +19,6 @@
     - { role: arch/system-files, when: is_arch }
     - { role: arch/systemd, when: is_arch }
     - { role: arch/pacman, when: is_arch }
+
+    # OS X Stuff
+    - { role: macos, when: is_mac }
