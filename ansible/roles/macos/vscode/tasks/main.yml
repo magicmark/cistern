@@ -1,7 +1,7 @@
-- name: Copy vscode settings.json
+- name: Copy vscode settings
   file:
     src: "{{ item }}"
     dest: "{{ home }}/Library/Application Support/Code/User/{{ item | basename }}"
     state: link
-  with_file:
+  with_fileglob:
     - ./settings.json

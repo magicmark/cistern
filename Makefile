@@ -8,5 +8,6 @@ venv: Makefile requirements.txt
 	venv/bin/pre-commit install -f --install-hooks
 
 .PHONY: run
+run: export ANSIBLE_NOCOWS = 1
 run: venv
 	cd ansible; ../venv/bin/ansible-playbook main.yml
