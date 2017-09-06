@@ -9,7 +9,7 @@ jsonschema==2.5.1
 MarkupSafe==0.23
 nodeenv==1.1.0
 paramiko==2.1.1
-pre-commit==0.10.1
+pre-commit==0.18.2
 pyasn1==0.1.9
 pycparser==2.17
 pycrypto==2.6.1
