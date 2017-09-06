@@ -21,4 +21,5 @@
     - { role: arch/pacman, when: is_arch }
 
     # OS X Stuff
-    - { role: macos, when: is_mac }
+    - { role: macos/homebrew, when: is_mac }
+    - { role: macos/vscode, when: is_mac }

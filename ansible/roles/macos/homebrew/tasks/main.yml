@@ -5,9 +5,13 @@
 - name: Homebrew Install Packages
   homebrew: name={{ item }} state=latest
   with_items:
+    - coreutils
     - ffmpeg
+    - fish
     - iperf
     - neovim/neovim/neovim
     - ssh-copy-id
     - tmux
+    - tree
+    - weechat
     - wget
