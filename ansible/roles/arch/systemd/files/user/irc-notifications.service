@@ -6,4 +6,3 @@ ExecStart=/home/markl/GitApps/IRCNotify/client.arch.js
 
 [Install]
 WantedBy=default.target
-

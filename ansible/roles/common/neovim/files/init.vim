@@ -160,7 +160,7 @@ set expandtab
 " size of an "indent"
 set shiftwidth=4
 " Sets the number of columns for a TAB
-set softtabstop=4   
+set softtabstop=4
 
 imap jj <Esc>
 
@@ -205,7 +205,7 @@ set splitbelow
 set splitright
 
 " Searching
-set ignorecase  
+set ignorecase
 set incsearch
 set nohlsearch
 
@@ -230,7 +230,7 @@ function! SpellCheck()
     redraw
     echo l:result
     let @@ = l:result
-endfunction 
+endfunction
 
 command SpellCheck :call SpellCheck()
 

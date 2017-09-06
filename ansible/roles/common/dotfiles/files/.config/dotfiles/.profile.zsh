@@ -58,7 +58,7 @@ alias snpm='export PATH=$(npm bin):$PATH'
 
 # https://coderwall.com/p/_s_xda/fix-ssh-agent-in-reattached-tmux-session-shells
 # https://babushk.in/posts/renew-environment-tmux.html
-if [ -n "$TMUX" ]; then                                                                               
+if [ -n "$TMUX" ]; then
     function fixtmux {
         for key in VIM_THEME SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
             if (tmux show-environment | grep "^${key}" > /dev/null); then

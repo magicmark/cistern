@@ -4,4 +4,3 @@ defbce "on"
 term xterm-256color
 encoding UTF-8
 altscreen on
-

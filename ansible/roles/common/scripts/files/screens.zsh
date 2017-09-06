@@ -43,7 +43,7 @@ function _set_scaled_output {
     local width="$2"
     local height="$3"
     local xoffset="$4"
-    
+
     integer scaled_width="$(($width*$factor))"
     integer scaled_height="$(($height*$factor))"
     echo "--mode ${width}x${height} --panning ${scaled_width}x${scaled_height}+${xoffset}+0 --scale ${factor}x$factor"
