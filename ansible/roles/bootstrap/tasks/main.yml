@@ -20,5 +20,3 @@
   set_fact:
     email: "mark@larah.me"
   when: is_home
-
-

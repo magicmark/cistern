@@ -4,5 +4,3 @@ route=$(ip route show | grep tun0)
 if [[ $route ]]; then
     echo "VPN Active"
 fi
-
-

@@ -114,7 +114,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+p exec qutebrowser
 bindsym $mod4+1 exec --no-startup-id google-chrome-stable
 bindsym $mod+y exec --no-startup-id firefox --new-window https://www.youtube.com
-bindsym $mod+Shit+y floating toggle 
+bindsym $mod+Shit+y floating toggle
 #bindsym $mod+Shit+y floating enable geometry {"x": 0, "y": 0, "width": 150, "height": 150 }
 bindsym $mod4+l exec --no-startup-id lock -f Hack-Regular -t "Go away ath" -- scrot -z
 bindsym $mod4+0 exec scrot
@@ -201,4 +201,3 @@ bindsym XF86KbdBrightnessUp exec --no-startup-id kb-light +
 
 # Start dunst
 exec --no-startup-id dunst -config /home/markl/.config/dunst/dunstrc
-
