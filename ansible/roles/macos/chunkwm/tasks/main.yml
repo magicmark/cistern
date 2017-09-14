@@ -1,0 +1,21 @@
+- name: Copy chunkwm settings
+  file:
+    src: "{{ item }}"
+    dest: "{{ home }}/{{ item | basename }}"
+    state: link
+  with_fileglob:
+    - ./.khdrc
+    - ./.chunkwmrc
+
+- name: Install brew packages
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - koekeishiya/formulae/khd
+    - crisidev/homebrew-chunkwm/chunkwm
+
+- name: Start brew services
+  command: "/usr/local/bin/brew services start {{ item }}"
+  with_items:
+    - koekeishiya/formulae/khd
+    - crisidev/homebrew-chunkwm/chunkwm
+  changed_when: False

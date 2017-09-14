@@ -16,6 +16,6 @@
         dest: "{{ home }}/GitApps/oh-my-zsh",
       }
     - {
-        url: "git@github.com:Yelp/aactivator",
+        url: "https://github.com/Yelp/aactivator.git",
         dest: "{{ home }}/GitApps/aactivator",
       }
