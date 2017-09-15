@@ -1,0 +1,7 @@
+- name: Copy hyper settings
+  file:
+    src: "{{ item }}"
+    dest: "{{ home }}/{{ item | basename }}"
+    state: link
+  with_fileglob:
+    - ./.hyper.js
