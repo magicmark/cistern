@@ -15,18 +15,20 @@ Plug 'ervandew/supertab'
 Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'dir': '~/GitApps/fzf' }
+Plug 'magicmark/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 " ========================================================
 call plug#end()
 
@@ -40,9 +42,11 @@ syntax enable
 set background=dark
 set clipboard=unnamed
 
+let g:lightline = {}
+
 if $VIM_THEME == 'gruvbox'
     colorscheme gruvbox
-    let g:airline_theme='gruvbox'
+    let g:lightline.colorscheme = 'gruvbox'
 endif
 
 if $VIM_THEME == 'solarized'
@@ -51,6 +55,7 @@ if $VIM_THEME == 'solarized'
     let g:solarized_visibility = "high"
     let g:solarized_contrast = "high"
     let g:solarized_termtrans = 1
+    let g:lightline.colorscheme = 'solarized'
 endif
 
 " ========================================================
@@ -66,6 +71,11 @@ endif
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 
+" ========================================================
+" prettier settings
+" ========================================================
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
 
 " ========================================================
 " Shougo/deoplete settings
@@ -90,18 +100,36 @@ let g:indentLine_char = '│'
 
 
 " ========================================================
-" bling/vim-airline settings
+" itchyny/lightline settings
 " ========================================================
+"
+"let g:lightline.component_function = {
+"    \   'mode': 'BoldMode'
+" \ }
+""
+"function! BoldMode()
+"    let s:StatuslineMode=mode()
+"    if s:StatuslineMode == 'n'
+"        return '\x1b[0;35mnormal'
+"    elseif s:StatuslineMode == 'i'
+"        return 'insert'
+"    endif
+"endfunction
+
+let g:lightline.active = {
+    \     'left': [
+    \        [ 'mode', 'paste' ],
+    \        [ 'readonly', 'relativepath', 'modified' ]
+    \     ],
+    \     'right': [
+    \        [ 'lineinfo' ],
+    \        [ 'percent' ],
+    \        [ 'filetype' ]
+    \     ]
+    \   }
 
 " vim airline show status bar
 set laststatus=2
-" vim powerline fonts for arrows
-let g:airline_powerline_fonts = 1
-" Instead of displaying file encoding, display absolute file path.
-let g:airline_section_y = airline#section#create(['%F'])
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-
 
 " ========================================================
 " scrooloose/syntastic settings
@@ -195,7 +223,7 @@ set timeoutlen=200
 set hidden
 
 " set ruler
-set colorcolumn=80
+set colorcolumn=120
 set colorcolumn=+1
 
 set splitbelow

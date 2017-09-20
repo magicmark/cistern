@@ -10,6 +10,7 @@
     dest: "{{ item.dest }}"
     clone: yes
     update: yes
+    depth: 1
   with_items:
     - {
         url: "https://github.com/robbyrussell/oh-my-zsh.git",
@@ -19,3 +20,13 @@
         url: "https://github.com/Yelp/aactivator.git",
         dest: "{{ home }}/GitApps/aactivator",
       }
+    - {
+        url: "https://github.com/junegunn/fzf.git",
+        dest: "{{ home }}/GitApps/fzf",
+      }
+
+- name: Post Install Tasks
+  command: ./install --no-update-rc --completion --key-bindings
+  args:
+    chdir: "{{ home }}/GitApps/fzf"
+  changed_when: False
