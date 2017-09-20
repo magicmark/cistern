@@ -49,7 +49,10 @@ function __nodeenv_info {
 }
 
 function __u2253 {
-    echo "%{$fg_bold[white]%}≓%{$reset_color%}"
+    echo "%{$fg_bold[white]%}♪%{$reset_color%}"
+    #echo "%{$fg_bold[white]%}▶%{$reset_color%}"
+    #echo "%{$fg_bold[white]%}$%{$reset_color%}"
+    #echo "%{$fg_bold[white]%}≓%{$reset_color%}"
 }
 
 function __prompt_char {

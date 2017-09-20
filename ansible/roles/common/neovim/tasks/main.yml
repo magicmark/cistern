@@ -39,3 +39,7 @@
     - backup_files
     - swap_files
     - undo_files
+
+- name: install plugins
+  command: nvim +PlugInstall +qall --headless
+  changed_when: False

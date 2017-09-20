@@ -9,6 +9,7 @@
     - ffmpeg
     - fish
     - iperf
+    - jq
     - neovim/neovim/neovim
     - ssh-copy-id
     - tmux

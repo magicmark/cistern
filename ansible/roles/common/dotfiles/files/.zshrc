@@ -2,7 +2,7 @@
 source "$HOME/.config/dotfiles/.paths"
 
 # Set up oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/GitApps/oh-my-zsh"
 ZSH_THEME="markl"
 plugins=(git tmux vundle virtualenv zsh_reload)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"

@@ -100,6 +100,7 @@ chunkc core::load ffm.so
 #       to pass value containing a whitespace.
 #
 
-chunkc tiling::rule --owner Spotify --role AXWindow --subrole AXDialog --state tile
+chunkc tiling::rule --owner Spotify --role AXWindow --subrole AXDialog --state float
+#chunkc tiling::rule --owner Spotify --role AXWindow --subrole AXDialog --state tile
 chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner \"App Store\" --state float
