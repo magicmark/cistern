@@ -106,7 +106,7 @@ let g:indentLine_char = '│'
 let g:lightline.active = {
     \     'left': [
     \        [ 'mode', 'paste' ],
-    \        [ 'readonly', 'relativepath', 'modified' ]
+    \        [ 'readonly', 'absolutepath', 'modified' ]
     \     ],
     \     'right': [
     \        [ 'lineinfo' ],
