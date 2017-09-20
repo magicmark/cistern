@@ -10,4 +10,4 @@
     dest: "{{ home }}/.iterm/{{ item | basename }}"
     state: link
   with_fileglob:
-    - ./.iterm/com.googlecode.iterm2.plist
+    - ./com.googlecode.iterm2.plist

@@ -17,13 +17,13 @@ Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'junegunn/fzf', { 'dir': '~/GitApps/fzf' }
 Plug 'magicmark/gruvbox'
+Plug 'mgee/lightline-bufferline'
 "Plug 'morhetz/gruvbox'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
-Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
@@ -102,19 +102,6 @@ let g:indentLine_char = '│'
 " ========================================================
 " itchyny/lightline settings
 " ========================================================
-"
-"let g:lightline.component_function = {
-"    \   'mode': 'BoldMode'
-" \ }
-""
-"function! BoldMode()
-"    let s:StatuslineMode=mode()
-"    if s:StatuslineMode == 'n'
-"        return '\x1b[0;35mnormal'
-"    elseif s:StatuslineMode == 'i'
-"        return 'insert'
-"    endif
-"endfunction
 
 let g:lightline.active = {
     \     'left': [
@@ -128,8 +115,21 @@ let g:lightline.active = {
     \     ]
     \   }
 
-" vim airline show status bar
+" show status bar
 set laststatus=2
+
+" ========================================================
+" mgee/lightline-bufferline settings
+" ========================================================
+
+let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#unnamed      = '[No Name]'
+
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+set showtabline=2
 
 " ========================================================
 " scrooloose/syntastic settings

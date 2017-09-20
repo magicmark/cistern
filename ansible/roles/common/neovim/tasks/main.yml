@@ -41,5 +41,5 @@
     - undo_files
 
 - name: install plugins
-  command: script test nvim +PlugInstall +qall --headless
+  command: nvim +PlugInstall +qall --headless
   changed_when: False
