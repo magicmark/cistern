@@ -25,3 +25,4 @@
     - { role: macos/homebrew, when: is_mac }
     - { role: macos/vscode, when: is_mac }
     - { role: macos/hyper, when: is_mac }
+    - { role: macos/iterm2, when: is_mac }

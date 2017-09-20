@@ -1,0 +1,13 @@
+- name: iterm folder
+  file:
+    path: "{{ home }}/.iterm"
+    state: directory
+    mode: 0755
+
+- name: Copy iterm settings
+  file:
+    src: "{{ item }}"
+    dest: "{{ home }}/.iterm/{{ item | basename }}"
+    state: link
+  with_fileglob:
+    - ./.iterm/com.googlecode.iterm2.plist
