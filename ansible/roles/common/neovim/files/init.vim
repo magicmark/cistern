@@ -16,9 +16,8 @@ Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'junegunn/fzf', { 'dir': '~/GitApps/fzf' }
-Plug 'magicmark/gruvbox'
 Plug 'mgee/lightline-bufferline'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', {

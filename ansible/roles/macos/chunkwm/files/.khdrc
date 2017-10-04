@@ -127,3 +127,6 @@ shift + alt - t : chunkc set window_float_next 1
 ctrl + alt - a : chunkc tiling::desktop --layout bsp
 ctrl + alt - s : chunkc tiling::desktop --layout monocle
 ctrl + alt - d : chunkc tiling::desktop --layout float
+
+# https://github.com/koekeishiya/chunkwm/issues/98
+cmd + shift - 4 -> : chunkc border::clear
