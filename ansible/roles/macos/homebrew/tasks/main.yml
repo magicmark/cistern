@@ -11,6 +11,7 @@
     - iperf
     - jq
     - neovim/neovim/neovim
+    - nmap
     - ssh-copy-id
     - tmux
     - tree
