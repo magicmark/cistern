@@ -6,6 +6,7 @@ source "$DOTFILES/.vim.zsh"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export TERM="xterm-256color"
+export VIM_THEME="gruvbox"
 
 alias :e=nvim
 alias :E=nvim

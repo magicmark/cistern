@@ -5,7 +5,10 @@ source "$HOME/.config/dotfiles/.paths"
 export ZSH="$HOME/GitApps/oh-my-zsh"
 ZSH_THEME="markl"
 plugins=(git tmux vundle virtualenv zsh_reload)
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
+
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
+export PATH="$PATH:./node_modules/.bin"
+
 source "$ZSH/oh-my-zsh.sh"
 export LC_ALL="en_US.UTF-8"
 
