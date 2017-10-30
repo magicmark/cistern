@@ -31,6 +31,13 @@ main() {
   fi
   unset CHECK_ZSH_INSTALLED
 
+  CHECK_VIRTUALENV_INSTALLED=$(which virtualenv)
+  if [ ! $CHECK_VIRTUALENV_INSTALLED -ge 1 ]; then
+    printf "${YELLOW}virtualenv is not installed!${NORMAL} Please install virtualenv first!\n"
+    exit
+  fi
+  unset CHECK_VIRTUALENV_INSTALLED
+
   if [ ! -n "$CISTERN" ]; then
     CISTERN=~/cistern
   fi
