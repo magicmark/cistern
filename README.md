@@ -16,3 +16,9 @@ Install ansible + python3.5, then run ansible-playbook
 make venv
 make run
 ```
+
+### Bootstrap script
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/magicmark/cistern/master/tools/install.sh)"
+```
