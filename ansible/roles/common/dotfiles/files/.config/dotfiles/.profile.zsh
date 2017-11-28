@@ -32,7 +32,7 @@ export PATH="$PATH:$GOBIN"
 
 # Set up Yarn
 if $(yarn --version &> /dev/null); then
-    export PATH="$PATH:`yarn global bin`"
+    #export PATH="$PATH:`yarn global bin`"
 fi
 
 # set up aactivator

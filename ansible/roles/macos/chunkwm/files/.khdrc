@@ -2,7 +2,7 @@
 cmd + alt + ctrl - r : khd -e "reload" && brew services restart chunkwm
 
 # open terminal
-cmd - return : open -na /Applications/iTerm.app
+# cmd - return : open -na /Applications/iTerm.app
 
 # focus window
 alt - h : chunkc tiling::window --focus west
