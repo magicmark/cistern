@@ -1,0 +1,5 @@
+- cron:
+    name: "update cistern"
+    minute: "0"
+    user: "{{ ansible_user_id }}"
+    job: "~/cistern/tools/update.sh"

@@ -13,6 +13,7 @@
     - common/neovim
     - common/scripts
     - common/apps
+    - common/crontab
 
     # Arch Stuff
     - { role: arch/dotfiles, when: is_arch }
