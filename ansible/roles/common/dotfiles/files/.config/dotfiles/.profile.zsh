@@ -35,7 +35,13 @@ if $(yarn --version &> /dev/null); then
     #export PATH="$PATH:`yarn global bin`"
 fi
 
-# set up aactivator
+# Set up npm bin
+# https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory
+mkdir -p ~/.npm-global
+npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
+
+#set up aactivator
 eval "$($DF_VENV/bin/aactivator init)"
 
 function cddot {
