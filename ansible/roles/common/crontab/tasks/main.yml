@@ -2,4 +2,4 @@
     name: "update cistern"
     minute: "0"
     user: "{{ ansible_user_id }}"
-    job: "~/cistern/tools/update.sh"
+    job: "cd ~/cistern/ && tools/update.sh"

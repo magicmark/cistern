@@ -13,6 +13,7 @@
     - neovim/neovim/neovim
     - nmap
     - ssh-copy-id
+    - tldr
     - tmux
     - tree
     - weechat

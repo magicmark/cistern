@@ -6,5 +6,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 CISTERN="$(dirname "${SCRIPT_DIR}")"
 
 pushd $CISTERN
+pwd
 git pull origin master
 make run
