@@ -11,3 +11,17 @@
     state: link
   with_fileglob:
     - ./com.googlecode.iterm2.plist
+
+- name: Set Defaults
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: PrefsCustomFolder
+    type: string
+    value: "{{ home }}/.iterm"
+    state: present
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: LoadPrefsFromCustomFolder
+    type: bool
+    value: true
+    state: present

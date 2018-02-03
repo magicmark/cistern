@@ -18,3 +18,14 @@
     - tree
     - weechat
     - wget
+
+- name: Tap Homebrew
+  homebrew_tap: name={{ item }} state=present
+  with_items:
+    - caskroom/fonts
+
+- name: Homebrew Cask Install
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    # from caskroom/fonts
+    - font-source-code-pro
