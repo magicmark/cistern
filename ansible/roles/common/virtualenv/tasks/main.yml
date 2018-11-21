@@ -1,0 +1,20 @@
+- name: Dotfiles venv
+  pip:
+    virtualenv: "{{ home }}/.config/dotfiles/venv"
+    virtualenv_python: python3
+    requirements: "{{ home }}/.config/dotfiles/requirements.txt"
+    state: latest
+
+- name: Ensure bin folder exists
+  file:
+    path: "{{ home }}/bin"
+    state: directory
+    mode: 0755
+
+- name: Symlink venv executables
+  file:
+    src: "{{ home }}/.config/dotfiles/venv/bin/{{ item }}"
+    dest: "{{ home }}/bin/{{ item }}"
+    state: link
+  with_items:
+    - tox

@@ -14,6 +14,7 @@
     - common/scripts
     - common/apps
     - common/crontab
+    - common/virtualenv
 
     # Arch Stuff
     - { role: arch/dotfiles, when: is_arch }

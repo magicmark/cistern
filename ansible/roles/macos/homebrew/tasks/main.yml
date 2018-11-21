@@ -23,6 +23,7 @@
     - iperf
     - jq
     - neovim/neovim/neovim
+    - node
     - nmap
     - ssh-copy-id
     - sshfs
@@ -31,3 +32,4 @@
     - tree
     - weechat
     - wget
+    - yarn

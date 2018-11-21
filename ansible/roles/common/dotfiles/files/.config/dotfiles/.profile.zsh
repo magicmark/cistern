@@ -16,8 +16,7 @@ alias llf='ls -lAF'
 alias ncm='ncmpcpp'
 
 if [[ -d ~/bin ]]; then
-    MYBINPATH="$HOME/bin"
-    export PATH="$PATH:$MYBINPATH"
+    export PATH="$PATH:$HOME/bin"
 fi
 
 if [[ -d ~/GitApps/bin ]]; then

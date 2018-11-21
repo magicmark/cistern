@@ -35,10 +35,3 @@
     src: ".gitconfig.j2"
     dest: "{{ home }}/.gitconfig"
     mode: 0664
-
-- name: Dotfiles venv
-  pip:
-    virtualenv: "{{ home }}/.config/dotfiles/venv"
-    virtualenv_python: python3
-    requirements: "{{ home }}/.config/dotfiles/requirements.txt"
-    state: latest
