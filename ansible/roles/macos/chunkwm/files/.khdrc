@@ -2,7 +2,7 @@
 cmd + alt + ctrl - r : khd -e "reload" && brew services restart chunkwm
 
 # open terminal
-cmd - return : open -na /Applications/iTerm.app
+# cmd - return : open -na /Applications/iTerm.app
 
 # focus window
 alt - h : chunkc tiling::window --focus west
@@ -38,15 +38,15 @@ shift + ctrl - left  : chunkc tiling::window --warp-floating bottom-left
 shift + ctrl - right : chunkc tiling::window --warp-floating bottom-right
 
 # send window to desktop
-shift + alt - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+# shift + alt - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
 shift + alt - z : chunkc tiling::window --send-to-desktop prev
 shift + alt - c : chunkc tiling::window --send-to-desktop next
-shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
-shift + alt - 2 : chunkc tiling::window --send-to-desktop 2
-shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
-shift + alt - 4 : chunkc tiling::window --send-to-desktop 4
-shift + alt - 5 : chunkc tiling::window --send-to-desktop 5
-shift + alt - 6 : chunkc tiling::window --send-to-desktop 6
+# shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
+# shift + alt - 2 : chunkc tiling::window --send-to-desktop 2
+# shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
+# shift + alt - 4 : chunkc tiling::window --send-to-desktop 4
+# shift + alt - 5 : chunkc tiling::window --send-to-desktop 5
+# shift + alt - 6 : chunkc tiling::window --send-to-desktop 6
 
 # send window to desktop and switch desktop
 shift + cmd - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "cmd + alt - $id" &> /dev/null`
@@ -127,3 +127,6 @@ shift + alt - t : chunkc set window_float_next 1
 ctrl + alt - a : chunkc tiling::desktop --layout bsp
 ctrl + alt - s : chunkc tiling::desktop --layout monocle
 ctrl + alt - d : chunkc tiling::desktop --layout float
+
+# https://github.com/koekeishiya/chunkwm/issues/98
+cmd + shift - 4 -> : chunkc border::clear

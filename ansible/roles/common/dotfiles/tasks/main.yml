@@ -39,6 +39,6 @@
 - name: Dotfiles venv
   pip:
     virtualenv: "{{ home }}/.config/dotfiles/venv"
-    virtualenv_python: python3.5
+    virtualenv_python: python3
     requirements: "{{ home }}/.config/dotfiles/requirements.txt"
     state: latest

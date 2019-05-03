@@ -5,3 +5,17 @@
     state: link
   with_fileglob:
     - ./settings.json
+
+- name: VSCode Extensions
+  command: "/usr/local/bin/code --install-extension {{ item }}"
+  with_items:
+    - christian-kohler.path-intellisense
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - flowtype.flow-for-vscode
+    - formulahendry.code-runner
+    - joebateson.yelpcheetah
+    - joshpeng.sublime-babel-vscode
+    - vscodevim.vim
+    - zhuangtongfa.Material-theme
+  changed_when: False

@@ -19,10 +19,10 @@ chunkc core::hotload 1
 #
 
 chunkc set global_desktop_mode           bsp
-chunkc set 2_desktop_mode                monocle
-chunkc set 5_desktop_mode                float
+#chunkc set 2_desktop_mode                monocle
+#chunkc set 5_desktop_mode                float
 
-chunkc set 1_desktop_tree                ~/.chunkwm_layouts/dev_1
+#chunkc set 1_desktop_tree                ~/.chunkwm_layouts/dev_1
 
 chunkc set global_desktop_offset_top     20
 chunkc set global_desktop_offset_bottom  20
@@ -101,6 +101,7 @@ chunkc core::load ffm.so
 #
 
 chunkc tiling::rule --owner Spotify --role AXWindow --subrole AXDialog --state float
+chunkc tiling::rule --owner Textual --role AXWindow --subrole AXDialog --state tile
 #chunkc tiling::rule --owner Spotify --role AXWindow --subrole AXDialog --state tile
 chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner \"App Store\" --state float

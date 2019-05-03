@@ -1,8 +1,10 @@
 all: run
 
+PYTHON3 := $(shell command -v python3.5 || command -v python3)
+
 venv: Makefile requirements.txt
 	rm -rf venv
-	virtualenv venv --python=python3
+	$(PYTHON3) tools/get-virtualenv.py venv --python=$(PYTHON3)
 	venv/bin/pip install -U pip
 	venv/bin/pip install -r requirements.txt
 	venv/bin/pre-commit install -f --install-hooks

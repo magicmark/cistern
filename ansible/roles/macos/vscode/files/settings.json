@@ -1,5 +1,5 @@
 {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.rulers": [81],
     "editor.renderIndentGuides": false,
     "editor.minimap.enabled": false,
@@ -17,5 +17,6 @@
     "prettier.tabWidth": 4,
     "prettier.printWidth": 120,
     "prettier.singleQuote": true,
-    "prettier.trailingComma": "all"
+    "prettier.trailingComma": "all",
+    "python.formatting.formatOnSave": false
 }

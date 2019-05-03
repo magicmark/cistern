@@ -26,7 +26,7 @@
 - name: nvim venv
   pip:
     virtualenv: "{{ home }}/.config/nvim/venv"
-    virtualenv_python: python3.5
+    virtualenv_python: python3
     requirements: "{{ role_path }}/files/requirements.txt"
     state: latest
 
