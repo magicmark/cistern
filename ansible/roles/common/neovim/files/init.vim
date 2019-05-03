@@ -21,9 +21,9 @@ Plug 'mgee/lightline-bufferline'
 "Plug 'morhetz/gruvbox'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
@@ -74,8 +74,8 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 " ========================================================
 " prettier settings
 " ========================================================
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+"let g:prettier#autoformat = 0
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
 
 " ========================================================
 " Shougo/deoplete settings
@@ -97,7 +97,8 @@ call gitgutter#highlight#define_highlights()
 " Yggdroot/indentLine settings
 " ========================================================
 let g:indentLine_char = '│'
-
+" disable markdown hiding
+let g:indentLine_setConceal = 0
 
 " ========================================================
 " itchyny/lightline settings
@@ -244,6 +245,9 @@ set undodir=~/.vim/undo_files//
 " http://www.bestofvim.com/tip/leave-ex-mode-good/
 " what even is ex mode anyway
 nnoremap Q <nop>
+
+" turn off markdown symbol hiding
+set conceallevel=0
 
 " ========================================================
 " snippets

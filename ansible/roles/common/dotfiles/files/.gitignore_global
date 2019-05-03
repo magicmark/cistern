@@ -7,3 +7,6 @@ zedrem
 *~
 *.swp
 *.swo
+.vscode
+.pytest_cache
+frontend-service-cleanup.sh

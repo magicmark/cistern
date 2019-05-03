@@ -24,6 +24,10 @@ if [[ -d ~/GitApps/bin ]]; then
     export PATH="$PATH:$GITAPPSPATH"
 fi
 
+if [[ -d ~/bin ]]; then
+    export PATH="$PATH:$HOME/bin"
+fi
+
 # Set up Go
 export GOPATH=~/go
 export GOBIN="$GOPATH/bin"
