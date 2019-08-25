@@ -22,7 +22,7 @@
     - { role: arch/pacman, when: is_arch }
 
     # OS X Stuff
-    - { role: macos/chunkwm, when: is_mac }
+    - { role: macos/yabai, when: is_mac }
     - { role: macos/homebrew, when: is_mac }
     - { role: macos/vscode, when: is_mac }
     - { role: macos/hyper, when: is_mac }

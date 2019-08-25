@@ -28,3 +28,7 @@ fi
 if [[ -e ~/.fzf.zsh ]]; then
     source ~/.fzf.zsh
 fi
+
+if [[ -f ~/.travis/travis.sh ]]; then
+    source ~/.travis/travis.sh
+fi

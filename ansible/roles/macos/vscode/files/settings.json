@@ -18,5 +18,11 @@
     "prettier.printWidth": 120,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "all",
-    "python.formatting.formatOnSave": false
+    "python.formatting.formatOnSave": false,
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
