@@ -10,8 +10,7 @@
 - name: Homebrew Cask Install
   homebrew_cask: name={{ item }} state=present
   with_items:
-    # from caskroom/fonts
-    - font-source-code-pro
+    - caskroom/fonts/font-source-code-pro
     - osxfuse
 
 - name: Homebrew Install Packages
