@@ -1,6 +1,6 @@
 - name: GitApps folder
   file:
-    path: "{{ home }}/GitApps"
+    path: "~/GitApps"
     state: directory
     mode: 0755
 
@@ -14,19 +14,19 @@
   with_items:
     - {
         url: "https://github.com/robbyrussell/oh-my-zsh.git",
-        dest: "{{ home }}/GitApps/oh-my-zsh",
+        dest: "~/GitApps/oh-my-zsh",
       }
     - {
         url: "https://github.com/Yelp/aactivator.git",
-        dest: "{{ home }}/GitApps/aactivator",
+        dest: "~/GitApps/aactivator",
       }
     - {
         url: "https://github.com/junegunn/fzf.git",
-        dest: "{{ home }}/GitApps/fzf",
+        dest: "~/GitApps/fzf",
       }
 
 - name: Post Install Tasks
   command: ./install --no-update-rc --completion --key-bindings
   args:
-    chdir: "{{ home }}/GitApps/fzf"
+    chdir: "~/GitApps/fzf"
   changed_when: False

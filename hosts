@@ -1,0 +1,9 @@
+localhost       ansible_connection=local
+
+[personal_servers]
+personal_server ansible_host=localhost          ansible_user=mark   ansible_port=4423
+nikon           ansible_host=157.230.146.227    ansible_user=mark
+
+# [do]
+# nikon ansible_host=157.230.146.227
+# playground ansible_host=10.0.2.2 ansible_port=4423 ansible_user=mark

@@ -1,6 +1,6 @@
 all: run
 
-PYTHON3 := $(shell command -v python3.5 || command -v python3)
+PYTHON3 := $(shell command -v python3.7 || command -v python3)
 
 venv: Makefile requirements.txt
 	rm -rf venv

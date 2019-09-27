@@ -1,20 +1,30 @@
-- name: Set nvim symlink
-  file:
-    # For some reason, this doesn't work with a relative path (?)
-    src: "{{ role_path }}/files/init.vim"
-    dest: "{{ home }}/.config/nvim/init.vim"
-    state: link
+- name: facts
+  set_fact:
+    files: "{{ playbook_dir }}/ansible/roles/common/neovim/files"
 
-- name: Set vim symlink
+- name: Set nvim config dir
   file:
+    path: "~/.config/nvim"
+    state: directory
+    mode: 0755
+
+- name: Set nvim config
+  copy:
     # For some reason, this doesn't work with a relative path (?)
-    src: "{{ role_path }}/files/init.vim"
-    dest: "{{ home }}/.vimrc"
-    state: link
+    src: "{{ files }}/init.vim"
+    dest: "~/.config/nvim/init.vim"
+    mode: 0664
+
+- name: Set vim config
+  copy:
+    # For some reason, this doesn't work with a relative path (?)
+    src: "{{ files }}/init.vim"
+    dest: "~/.vimrc"
+    mode: 0664
 
 - name: nvim folders
   file:
-    path: "{{ home }}/.local/share/nvim/site/autoload"
+    path: "~/.local/share/nvim/site/autoload"
     state: directory
     mode: 0755
 
@@ -25,14 +35,16 @@
 
 - name: nvim venv
   pip:
-    virtualenv: "{{ home }}/.config/nvim/venv"
+    virtualenv: "~/.config/nvim/venv"
     virtualenv_python: python3
-    requirements: "{{ role_path }}/files/requirements.txt"
+    name:
+        - jedi
+        - neovim
     state: latest
 
 - name: vim folders
   file:
-    path: "{{ home }}/.vim/{{ item }}"
+    path: "~/.vim/{{ item }}"
     state: directory
     mode: 0755
   with_items:
