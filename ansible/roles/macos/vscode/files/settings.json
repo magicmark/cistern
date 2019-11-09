@@ -12,7 +12,7 @@
     "git.enabled": false,
     "javascript.validate.enable": false,
     "vim.disableAnnoyingNeovimMessage": true,
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Darcula Theme from IntelliJ",
     "window.zoomLevel": 0,
     "prettier.tabWidth": 4,
     "prettier.printWidth": 120,
@@ -27,5 +27,14 @@
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
     "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false
+    "telemetry.enableCrashReporter": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
