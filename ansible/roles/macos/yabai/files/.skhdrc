@@ -143,3 +143,6 @@ ctrl + alt - a : yabai -m space --layout bsp
 ctrl + alt - d : yabai -m space --layout float
 
 shift + alt - n : . /Users/markl/GitApps/infobar/venv/bin/activate && python /Users/markl/GitApps/infobar/infobar/update_space_names.py
+
+# restart yabai
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"

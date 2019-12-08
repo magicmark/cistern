@@ -1,3 +1,12 @@
+## ==============================================================================
+## !! This file is managed by ansible !!
+## https://github.com/magicmark/cistern
+##
+## Local changes will be overwritten!
+##
+## Try: ~/cistern/ansible/roles/common/dotfiles/files/.zshrc
+## ==============================================================================
+
 # Path for dotfiles stuff
 source "$HOME/.config/dotfiles/.paths"
 

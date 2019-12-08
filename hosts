@@ -1,9 +1,9 @@
 localhost       ansible_connection=local
-
-[personal_servers]
-personal_server ansible_host=localhost          ansible_user=mark   ansible_port=4423
+# personal_server ansible_host=localhost          ansible_user=mark   ansible_port=4423
 nikon           ansible_host=157.230.146.227    ansible_user=mark
 
-# [do]
-# nikon ansible_host=157.230.146.227
-# playground ansible_host=10.0.2.2 ansible_port=4423 ansible_user=mark
+testbed ansible_ssh_private_key_file=/Users/markl/.ssh/personal_devbox_root.pem ansible_user=ubuntu ansible_host=ec2-18-144-74-136.us-west-1.compute.amazonaws.com
+
+[ubuntu_personal_server]
+nikon
+testbed

@@ -12,4 +12,5 @@ venv: Makefile requirements.txt
 .PHONY: run
 run: export ANSIBLE_NOCOWS = 1
 run: venv
-	cd ansible; ../venv/bin/ansible-playbook main.yml
+	# change to -l nikon to run on personal devbox
+	venv/bin/ansible-playbook ansible/main.yml -i hosts -l localhost

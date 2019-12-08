@@ -1,0 +1,107 @@
+- name: python
+  become: yes
+  become_user: root
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+    state: present
+
+- name: mosh
+  become: yes
+  become_user: root
+  apt_repository:
+    repo: ppa:keithw/mosh
+    state: present
+
+- name: nodejs nodesource package signing key
+  become: yes
+  become_user: root
+  apt_key:
+    # $ gpg --show-keys nodesource.gpg.key
+    id: 9FD3B784BC1C6FC31A8A0A1C1655A0AB68576280
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
+
+- name: yarn package signing key
+  become: yes
+  become_user: root
+  apt_key:
+    # $ gpg --show-keys pubkey.gpg
+    id: 72ECF46A56B4AD39C907BBB71646B01B86E50310
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+
+- name: add nodejs deb
+  become: yes
+  become_user: root
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_13.x {{ ansible_distribution_release }} main
+    state: present
+    filename: nodesource
+
+- name: add nodejs deb-src
+  become: yes
+  become_user: root
+  apt_repository:
+    repo: deb-src https://deb.nodesource.com/node_13.x {{ ansible_distribution_release }} main
+    state: present
+    filename: nodesource
+
+- name: add yarn deb
+  become: yes
+  become_user: root
+  apt_repository:
+    repo: deb https://dl.yarnpkg.com/debian/ stable main
+    state: present
+    filename: yarn
+
+- name: Update repositories cache
+  become: yes
+  become_user: root
+  apt:
+    update_cache: yes
+
+- name: Install packages
+  become: yes
+  become_user: root
+  apt:
+    pkg:
+      - git
+      - zsh
+      - neovim
+      - nodejs
+      - yarn
+      - python3.7
+      - python-virtualenv
+      # mosh
+      - python3-software-properties
+      # mosh-server
+    state: latest
+
+- name: user 'mark'
+  become: yes
+  become_user: root
+  user:
+    name: mark
+    groups:
+      - sudo
+    shell: /bin/zsh
+    comment: Mark Larah
+
+- name: Set authorized keys taken from url
+  become: yes
+  become_user: root
+  authorized_key:
+    user: mark
+    state: present
+    key: https://github.com/magicmark.keys
+
+- name: Run other roles
+  include_role:
+    name: '{{ item }}'
+    apply:
+      become: yes
+      become_user: mark
+  with_items:
+    - 'common/dotfiles'
+    - 'common/neovim'
+    - 'common/apps'

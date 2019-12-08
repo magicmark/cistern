@@ -1,10 +1,19 @@
+## ==============================================================================
+## !! This file is managed by ansible !!
+## https://github.com/magicmark/cistern
+##
+## Local changes will be overwritten!
+## ==============================================================================
+
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [grep]
-	extendRegexp = true
-	lineNumber = true
+    extendRegexp = true
+    lineNumber = true
 [alias]
     g = grep --break --heading --line-number
 [user]
     name = Mark Larah
     email = {{ email }}
+[diff]
+    noprefix = true

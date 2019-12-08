@@ -6,8 +6,8 @@
 
 - name: Install Common GitApps
   git:
-    repo: "{{ item.url }}"
-    dest: "{{ item.dest }}"
+    repo: "{{ git_app.url }}"
+    dest: "{{ git_app.dest }}"
     clone: yes
     update: yes
     depth: 1
@@ -24,6 +24,8 @@
         url: "https://github.com/junegunn/fzf.git",
         dest: "~/GitApps/fzf",
       }
+  loop_control:
+    loop_var: git_app
 
 - name: Post Install Tasks
   command: ./install --no-update-rc --completion --key-bindings

@@ -1,6 +1,9 @@
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
+# Disable finder animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
 # Below is from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
 # Disable Notification Center and remove the menu bar icon

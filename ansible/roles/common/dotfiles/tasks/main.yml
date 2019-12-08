@@ -1,53 +1,24 @@
-# Creates the folders, and symlinks the needed files.
+- name: dotfiles
+  block:
+    - name: facts
+      set_fact:
+        dotfiles: "{{ playbook_dir }}/roles/common/dotfiles/files"
 
-- name: facts
-  set_fact:
-    dotfiles: "{{ playbook_dir }}/ansible/roles/common/dotfiles/files"
+    - name: Copy dotfiles
+      copy:
+        src: "{{ dotfiles }}/"
+        dest: "~"
+        mode: 0664
 
-# There doesn't apparently appear to be a good way to recursively fetch a list of folders
-# in ansible, so do a workaround to fetch the folders we will create.
-- name: Fetch dotfiles folders
-  command: "find . ! -path . -type d"
-  args:
-    chdir: "{{ dotfiles }}"
-  delegate_to: 127.0.0.1
-  register: folders
-  changed_when: False
+    - name: Set .gitconfig
+      template:
+        src: "{{ dotfiles }}/../templates/.gitconfig.j2"
+        dest: "~/.gitconfig"
+        mode: 0664
 
-- name: Ensure dotfile folders exist
-  become: yes
-  become_user: root
-  file:
-    path: "~/{{ item }}"
-    state: directory
-    recurse: yes
-    mode: 0755
-  with_items: "{{ folders.stdout_lines }}"
-
-- name: Fetch dotfiles files
-  command: "find . ! -path . -type f"
-  delegate_to: 127.0.0.1
-  args:
-    chdir: "{{ dotfiles }}"
-  register: files
-  changed_when: False
-
-- name: Copy dotfiles
-  copy:
-    src: "{{ dotfiles }}/{{ item }}"
-    dest: "~/{{ item }}"
-    mode: 0664
-  with_items: "{{ files.stdout_lines }}"
-
-- name: Set .gitconfig
-  template:
-    src: "{{ dotfiles }}/../templates/.gitconfig.j2"
-    dest: "~/.gitconfig"
-    mode: 0664
-
-- name: Dotfiles venv
-  pip:
-    virtualenv: "~/.config/dotfiles/venv"
-    virtualenv_python: python3
-    requirements: "~/.config/dotfiles/requirements.txt"
-    state: latest
+    - name: Dotfiles venv
+      pip:
+        virtualenv: "~/.config/dotfiles/venv"
+        virtualenv_python: python3
+        requirements: "~/.config/dotfiles/requirements.txt"
+        state: latest

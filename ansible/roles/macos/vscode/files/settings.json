@@ -6,18 +6,18 @@
     "editor.fontFamily": "Source Code Pro",
     "editor.fontSize": 14,
     "eslint.nodePath": "/usr/local/bin/eslint",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact"
+    ],
     "flow.useNPMPackagedFlow": false,
     "flow.showStatus": true,
     "flow.pathToFlow": "/var/folders/xp/n5tbdrrs761ck82qqychcf61ptmq9d/T/tmp.G41LFtc1ec/node_modules/.bin/flow",
     "git.enabled": false,
-    "javascript.validate.enable": false,
+    "javascript.validate.enable": true,
     "vim.disableAnnoyingNeovimMessage": true,
     "workbench.colorTheme": "Darcula Theme from IntelliJ",
     "window.zoomLevel": 0,
-    "prettier.tabWidth": 4,
-    "prettier.printWidth": 120,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "all",
     "python.formatting.formatOnSave": false,
     "[javascriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -36,5 +36,6 @@
     },
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "editor.codeLens": false
 }
