@@ -1,44 +1,24 @@
-# Creates the folders, and symlinks the needed files.
+- name: dotfiles
+  block:
+    - name: facts
+      set_fact:
+        dotfiles: "{{ playbook_dir }}/roles/common/dotfiles/files"
 
-# There doesn't apparently appear to be a good way to recursively fetch a list of folders
-# in ansible, so do a workaround to fetch the folders we will create.
-- name: Fetch dotfiles folders
-  command: "find . ! -path . -type d"
-  args:
-    chdir: "{{ role_path }}/files"
-  register: folders
-  changed_when: False
+    - name: Copy dotfiles
+      copy:
+        src: "{{ dotfiles }}/"
+        dest: "~"
+        mode: 0664
 
-- name: Ensure dotfile folders exist
-  file:
-    path: "{{ home }}/{{ item }}"
-    state: directory
-    mode: 0755
-  with_items: "{{ folders.stdout_lines }}"
+    - name: Set .gitconfig
+      template:
+        src: "{{ dotfiles }}/../templates/.gitconfig.j2"
+        dest: "~/.gitconfig"
+        mode: 0664
 
-- name: Fetch dotfiles files
-  command: "find . ! -path . -type f"
-  args:
-    chdir: "{{ role_path }}/files"
-  register: files
-  changed_when: False
-
-- name: Symlink dotfiles
-  file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ home }}/{{ item }}"
-    state: link
-  with_items: "{{ files.stdout_lines }}"
-
-- name: Set .gitconfig
-  template:
-    src: ".gitconfig.j2"
-    dest: "{{ home }}/.gitconfig"
-    mode: 0664
-
-- name: Dotfiles venv
-  pip:
-    virtualenv: "{{ home }}/.config/dotfiles/venv"
-    virtualenv_python: python3
-    requirements: "{{ home }}/.config/dotfiles/requirements.txt"
-    state: latest
+    - name: Dotfiles venv
+      pip:
+        virtualenv: "~/.config/dotfiles/venv"
+        virtualenv_python: python3
+        requirements: "~/.config/dotfiles/requirements.txt"
+        state: latest

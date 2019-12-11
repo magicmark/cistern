@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
+## ==============================================================================
+## !! This file is managed by ansible !!
+## https://github.com/magicmark/cistern
+##
+## Local changes will be overwritten!
+## ==============================================================================
+
 # bar settings
 yabai -m config status_bar                   off
 yabai -m config status_bar_text_font         "Helvetica Neue:Bold:12.0"

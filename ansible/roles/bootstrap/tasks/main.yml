@@ -1,6 +1,6 @@
 - name: Determine if work machine
   stat:
-    path: "{{ home }}/.work"
+    path: "~/.work"
   register: workfile
 
 - name: Set facts

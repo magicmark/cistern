@@ -1,29 +1,7 @@
-- hosts: localhost
-  vars:
-    - user: "{{ lookup('env','USER') }}"
-    - home: "{{ lookup('env','HOME') }}"
-
+---
+- name: cistern
+  hosts: all
   roles:
-    # Run 'bootstrap' first to get env info
-    # TODO: better way of doing this?
     - bootstrap
-
-    # Run common stuff
-    - common/dotfiles
-    - common/neovim
-    - common/scripts
-    - common/apps
-    - common/crontab
-
-    # Arch Stuff
-    - { role: arch/dotfiles, when: is_arch }
-    - { role: arch/system-files, when: is_arch }
-    - { role: arch/systemd, when: is_arch }
-    - { role: arch/pacman, when: is_arch }
-
-    # OS X Stuff
-    - { role: macos/yabai, when: is_mac }
-    - { role: macos/homebrew, when: is_mac }
-    - { role: macos/vscode, when: is_mac }
-    - { role: macos/hyper, when: is_mac }
-    - { role: macos/iterm2, when: is_mac }
+    - { role: personal_server, when: "'ubuntu_personal_server' in group_names" }
+    - { role: macos, when: "ansible_os_family == 'Darwin'" }

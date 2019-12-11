@@ -1,0 +1,12 @@
+- name: Run roles
+  include_role:
+    name: '{{ item }}'
+  loop:
+    - 'common/dotfiles'
+    - 'common/neovim'
+    - 'common/apps'
+    - 'macos/yabai'
+    - 'macos/homebrew'
+    - 'macos/vscode'
+    - 'macos/hyper'
+    - 'macos/iterm2'

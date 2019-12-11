@@ -48,10 +48,6 @@ export PATH=~/.npm-global/bin:$PATH
 #set up aactivator
 eval "$($DF_VENV/bin/aactivator init)"
 
-function cddot {
-    cd "$DOTFILES" || exit
-}
-
 if [[ -e ~/.fzf.zsh ]]; then
     function ff {
         nvim "$(fzf)"
