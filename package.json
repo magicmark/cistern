@@ -1,0 +1,8 @@
+{
+  "name": "cistern",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:magicmark/cistern.git",
+  "author": "Mark Larah <mark@larah.me>",
+  "license": "MIT"
+}

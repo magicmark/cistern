@@ -2,15 +2,17 @@ all: run
 
 PYTHON3 := $(shell command -v python3.7 || command -v python3)
 
+.PHONY: venv
 venv: Makefile requirements.txt
-	rm -rf venv
-	$(PYTHON3) tools/get-virtualenv.py venv --python=$(PYTHON3)
-	venv/bin/pip install -U pip
-	venv/bin/pip install -r requirements.txt
-	venv/bin/pre-commit install -f --install-hooks
+	# https://github.com/python-poetry/poetry/issues/536#issuecomment-498308796
+	python3 $(HOME)/.poetry/bin/poetry install
+
+.PHONY: galaxy
+galaxy:
+	~/.poetry/bin/poetry run ansible-galaxy install geerlingguy.homebrew
 
 .PHONY: run
 run: export ANSIBLE_NOCOWS = 1
 run: venv
 	# change to -l nikon to run on personal devbox
-	venv/bin/ansible-playbook ansible/main.yml -i hosts -l localhost
+	$(HOME)/.poetry/bin/poetry run ansible-playbook ansible/main.yml -i hosts -l localhost --ask-become-pass

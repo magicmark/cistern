@@ -1,7 +1,7 @@
 - name: Copy vscode settings
   file:
     src: "{{ item }}"
-    dest: "{{ home }}/Library/Application Support/Code/User/{{ item | basename }}"
+    dest: "~/Library/Application Support/Code/User/{{ item | basename }}"
     state: link
   with_fileglob:
     - ./settings.json
@@ -15,7 +15,7 @@
     - flowtype.flow-for-vscode
     - formulahendry.code-runner
     - joebateson.yelpcheetah
-    - joshpeng.sublime-babel-vscode
+    - MarkLarah.pre-commit-vscode
     - vscodevim.vim
-    - zhuangtongfa.Material-theme
+    - trinm1709.dracula-theme-from-intellij
   changed_when: False

@@ -10,13 +10,12 @@
         "javascript",
         "javascriptreact"
     ],
-    "flow.useNPMPackagedFlow": false,
+    "flow.useNPMPackagedFlow": true,
     "flow.showStatus": true,
-    "flow.pathToFlow": "/var/folders/xp/n5tbdrrs761ck82qqychcf61ptmq9d/T/tmp.G41LFtc1ec/node_modules/.bin/flow",
     "git.enabled": false,
     "javascript.validate.enable": true,
     "vim.disableAnnoyingNeovimMessage": true,
-    "workbench.colorTheme": "Darcula Theme from IntelliJ",
+    "workbench.colorTheme": "Dracula",
     "window.zoomLevel": 0,
     "python.formatting.formatOnSave": false,
     "[javascriptreact]": {

@@ -1,0 +1,31 @@
+- block:
+  - name: Run role
+    include_role:
+      name: geerlingguy.homebrew
+    vars:
+      homebrew_taps:
+        - homebrew/core
+        - homebrew/cask-fonts
+      homebrew_cask_apps:
+        - transmission
+        - vlc
+        - skype
+        - firefox
+        - iterm2
+        - virtualbox
+      homebrew_installed_packages:
+        - coreutils
+        - ffmpeg
+        - fish
+        - iperf
+        - jq
+        - neovim/neovim/neovim
+        - nmap
+        - node
+        - ssh-copy-id
+        - tldr
+        - tmux
+        - tree
+        - wget
+        - yarn
+  become: yes

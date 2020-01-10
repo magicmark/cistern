@@ -2,11 +2,10 @@
   include_role:
     name: '{{ item }}'
   loop:
+    - 'homebrew'
     - 'common/dotfiles'
     - 'common/neovim'
     - 'common/apps'
     - 'macos/yabai'
-    - 'macos/homebrew'
     - 'macos/vscode'
-    - 'macos/hyper'
     - 'macos/iterm2'

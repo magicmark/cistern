@@ -1,13 +1,13 @@
 - name: iterm folder
   file:
-    path: "{{ home }}/.iterm"
+    path: "~/.iterm"
     state: directory
     mode: 0755
 
 - name: Copy iterm settings
   file:
     src: "{{ item }}"
-    dest: "{{ home }}/.iterm/{{ item | basename }}"
+    dest: "~/.iterm/{{ item | basename }}"
     state: link
   with_fileglob:
     - ./com.googlecode.iterm2.plist
@@ -17,7 +17,7 @@
     domain: com.googlecode.iterm2
     key: PrefsCustomFolder
     type: string
-    value: "{{ home }}/.iterm"
+    value: "~/.iterm"
     state: present
 
 - name: Set Defaults 2

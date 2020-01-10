@@ -1,17 +1,20 @@
 - name: Copy settings
   file:
     src: "{{ item }}"
-    dest: "{{ home }}/{{ item | basename }}"
+    dest: "~/{{ item | basename }}"
     state: link
   with_fileglob:
     - ./.skhdrc
     - ./.yabairc
 
-- name: Install brew packages
-  homebrew: name={{ item }} state=latest
-  with_items:
-    - koekeishiya/formulae/skhd
-    - koekeishiya/formulae/yabai
+- block:
+  - name: Run role
+    include_role:
+      name: geerlingguy.homebrew
+    vars:
+      homebrew_installed_packages:
+        - koekeishiya/formulae/skhd
+        - koekeishiya/formulae/yabai
 
 - name: Start brew services
   command: "/usr/local/bin/brew services start {{ item }}"
