@@ -1,5 +1,14 @@
 # notes
 
+## Python
+
+- https://brew.sh/ (`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`)
+- https://github.com/pyenv/pyenv (`brew install pyenv`)
+  - activate python3.8 (``)
+- https://python-poetry.org/docs/ (`curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`)
+
+
+- 
 ## Changing the hostname
 
 https://apple.stackexchange.com/a/86545
