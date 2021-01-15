@@ -18,7 +18,12 @@ From https://github.com/pyenv/pyenv
 brew install pyenv
 ```
 
-activate python3.8
+activate python3.x:
+
+```
+pyenv install 3.9.1
+pyenv global 3.9.1
+```
 
 ### 3. Poetry
 
