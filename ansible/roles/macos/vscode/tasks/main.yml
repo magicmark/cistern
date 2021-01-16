@@ -18,4 +18,5 @@
     - MarkLarah.pre-commit-vscode
     - vscodevim.vim
     - trinm1709.dracula-theme-from-intellij
+    - ms-vscode-remote.remote-ssh
   changed_when: False

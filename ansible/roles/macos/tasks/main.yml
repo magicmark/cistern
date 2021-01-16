@@ -2,7 +2,8 @@
   include_role:
     name: '{{ item }}'
   loop:
-    - 'homebrew'
+    # ignoreing brew until https://github.com/geerlingguy/ansible-role-homebrew/issues/155 is fixed
+    # - 'homebrew'
     - 'common/dotfiles'
     - 'common/neovim'
     - 'common/apps'

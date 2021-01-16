@@ -1,0 +1,6 @@
+---
+- name: cistern
+  hosts: all
+  roles:
+    - bootstrap
+    - common/dotfiles

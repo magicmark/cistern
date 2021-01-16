@@ -9,10 +9,15 @@ venv: Makefile requirements.txt
 
 .PHONY: galaxy
 galaxy:
-	~/.poetry/bin/poetry run ansible-galaxy install geerlingguy.homebrew
+	$(HOME)/.poetry/bin/poetry run ansible-galaxy install geerlingguy.homebrew
 
 .PHONY: run
 run: export ANSIBLE_NOCOWS = 1
-run: venv
+run: venv galaxy
 	# change to -l nikon to run on personal devbox
 	$(HOME)/.poetry/bin/poetry run ansible-playbook ansible/main.yml -i hosts -l localhost --ask-become-pass
+
+.PHONY: dotfiles
+dotfiles: export ANSIBLE_NOCOWS = 1
+dotfiles: venv
+	$(HOME)/.poetry/bin/poetry run ansible-playbook ansible/dotfiles.yml -i hosts -l localhost

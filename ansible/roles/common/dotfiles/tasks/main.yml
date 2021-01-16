@@ -16,6 +16,11 @@
         dest: "~/.gitconfig"
         mode: 0664
 
+    - name: Install virtualenv via pip
+      pip:
+        name: virtualenv
+        executable: pip3
+
     - name: Dotfiles venv
       pip:
         virtualenv: "~/.config/dotfiles/venv"

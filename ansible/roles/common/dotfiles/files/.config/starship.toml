@@ -1,0 +1,41 @@
+format = """
+[╔═](bold fg:139) $username@$hostname: $directory$git_branch$git_status$python
+[╚═](bold fg:139) $character
+"""
+
+[character]
+success_symbol = "[♪](bold white)"
+error_symbol = "[♪](bold white)"
+# commenting out cos it doesn't reset
+# error_symbol = "[♪](bold red)"
+
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "⚡️ "
+discharging_symbol = "💀 "
+
+[[battery.display]]
+threshold = 25
+style = "bold red"
+
+[username]
+show_always = true
+format =  "[$user](bold blue)"
+
+[hostname]
+ssh_only = false
+format =  "[$hostname](bold green)"
+trim_at = ".companyname.com"
+disabled = false
+
+[git_branch]
+format = "[git:\\(](bold blue)[$branch](bold red)[\\)](bold blue)"
+symbol = ""
+truncation_length = 40
+truncation_symbol = "…"
+
+[directory]
+truncate_to_repo = false
+
+[nodejs]
+disabled = true

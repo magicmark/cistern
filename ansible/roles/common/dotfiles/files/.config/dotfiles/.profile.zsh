@@ -1,63 +1,55 @@
 #!/usr/bin/zsh
+export DOTFILES="$HOME/.config/dotfiles"
 
-source "$DOTFILES/.docker.zsh"
-source "$DOTFILES/.vim.zsh"
-
+set -o vi
+set -o emacs
+export TERM=xterm-256color
+export LC_ALL="en_US.UTF-8"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export TERM="xterm-256color"
 export VIM_THEME="gruvbox"
+export PATH="$HOME/bin:$PATH"
 
-alias :e=nvim
-alias :E=nvim
-alias ezsh='nvim $DOTFILES/.zshrc'
+# Set up keybindings (do this first because we want fzf to override defaults)
+source "$DOTFILES/key-bindings.zsh"
 
-alias llf='ls -lAF'
-alias ncm='ncmpcpp'
-
-if [[ -d ~/bin ]]; then
-    MYBINPATH="$HOME/bin"
-    export PATH="$PATH:$MYBINPATH"
-fi
-
-if [[ -d ~/GitApps/bin ]]; then
-    GITAPPSPATH="$HOME/GitApps/bin"
-    export PATH="$PATH:$GITAPPSPATH"
-fi
-
-if [[ -d ~/bin ]]; then
-    export PATH="$PATH:$HOME/bin"
-fi
+# Set up Python / pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Set up Go
 export GOPATH=~/go
 export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$GOBIN"
+export PATH="$GOBIN:$PATH"
 
-# Set up Yarn
-if $(yarn --version &> /dev/null); then
-    #export PATH="$PATH:`yarn global bin`"
+
+export PATH="$DOTFILES/venv/bin:$PATH"
+source "$DOTFILES/.docker.zsh"
+
+# Set up fzf
+if [[ -e ~/.fzf.zsh ]]; then
+    source ~/.fzf.zsh
+fi
+
+if [[ `uname` == 'Darwin' ]]; then
+  source $DOTFILES/.zshrc.osx
 fi
 
 # Set up npm bin
 # https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory
-mkdir -p ~/.npm-global
-npm config set prefix '~/.npm-global'
-export PATH=~/.npm-global/bin:$PATH
+# mkdir -p ~/.npm-global
+# npm config set prefix '~/.npm-global'
+# export PATH=~/.npm-global/bin:$PATH
 
 #set up aactivator
-eval "$($DF_VENV/bin/aactivator init)"
-
-if [[ -e ~/.fzf.zsh ]]; then
-    function ff {
-        nvim "$(fzf)"
-    }
-fi
+eval "$(aactivator init)"
 
 # Fixes bracketed paste mode issues
 alias fixpaste="echo \"\e[?2004l\""
-
 alias untar="tar -zxvf"
+alias gst='git status'
 
 # source npm
 # http://stackoverflow.com/a/34071958/4396258

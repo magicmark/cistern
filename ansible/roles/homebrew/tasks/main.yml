@@ -23,6 +23,7 @@
         - nmap
         - node
         - ssh-copy-id
+        - starship
         - tldr
         - tmux
         - tree
