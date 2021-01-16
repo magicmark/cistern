@@ -24,6 +24,14 @@ export GOPATH=~/go
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
+# History
+# https://gist.github.com/matthewmccullough/787142
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=50000              #Number of history entries to save to disk
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 
 export PATH="$DOTFILES/venv/bin:$PATH"
 source "$DOTFILES/.docker.zsh"
