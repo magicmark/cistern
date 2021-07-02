@@ -2,6 +2,9 @@ all: run
 
 PYTHON3 := $(shell command -v python3.7 || command -v python3)
 
+~/bin/starship:
+	./tools/install-starship.sh
+
 .PHONY: venv
 venv: Makefile requirements.txt
 	# https://github.com/python-poetry/poetry/issues/536#issuecomment-498308796
@@ -19,5 +22,5 @@ run: venv galaxy
 
 .PHONY: dotfiles
 dotfiles: export ANSIBLE_NOCOWS = 1
-dotfiles: venv
+dotfiles: venv ~/bin/starship
 	$(HOME)/.poetry/bin/poetry run ansible-playbook ansible/dotfiles.yml -i hosts -l localhost
