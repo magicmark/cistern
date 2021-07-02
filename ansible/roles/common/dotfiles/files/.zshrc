@@ -7,6 +7,7 @@
 ## Try: ~/cistern/ansible/roles/common/dotfiles/files/.zshrc
 ## ==============================================================================
 
+export PATH="${HOME}/bin:$PATH"
 eval "$(starship init zsh)"
 export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"

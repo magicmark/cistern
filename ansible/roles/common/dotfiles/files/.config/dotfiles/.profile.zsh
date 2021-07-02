@@ -15,9 +15,11 @@ export PATH="$HOME/bin:$PATH"
 source "$DOTFILES/key-bindings.zsh"
 
 # Set up Python / pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if [[ ! -f "${HOME}/.work" ]]; then 
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
 
 # Set up Go
 export GOPATH=~/go
