@@ -17,6 +17,7 @@
         - coreutils
         - ffmpeg
         - fish
+        - font-hack
         - iperf
         - jq
         - neovim/neovim/neovim

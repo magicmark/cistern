@@ -89,8 +89,6 @@ let g:deoplete#sources#jedi#python_path = "$HOME/.config/nvim/venv/bin/python"
 
 " https://github.com/airblade/vim-gitgutter/issues/164#issuecomment-75758204
 highlight clear SignColumn
-call gitgutter#highlight#define_highlights()
-
 
 " ========================================================
 " Yggdroot/indentLine settings

@@ -1,7 +1,8 @@
 {
     "editor.formatOnSave": false,
-    "editor.rulers": [81],
-    "editor.renderIndentGuides": false,
+    "editor.rulers": [
+        81
+    ],
     "editor.minimap.enabled": false,
     "editor.fontFamily": "Source Code Pro",
     "editor.fontSize": 14,
@@ -12,11 +13,7 @@
     ],
     "flow.useNPMPackagedFlow": true,
     "flow.showStatus": true,
-    "git.enabled": false,
     "javascript.validate.enable": true,
-    "vim.disableAnnoyingNeovimMessage": true,
-    "workbench.colorTheme": "Dracula",
-    "window.zoomLevel": 0,
     "python.formatting.formatOnSave": false,
     "[javascriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -36,5 +33,52 @@
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.codeLens": false
+    "editor.codeLens": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorTheme": "Monokai",
+    "yaml.schemas": {
+        "file:///nail/home/markl/.vscode-server/extensions/atlassian.atlascode-2.9.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "cSpell.userWords": [
+        "camelcase",
+        "devc",
+        "Encid",
+        "internalips",
+        "LIABO",
+        "linebreak",
+        "syscall",
+        "tweens",
+        "userland"
+    ],
+    "vscode-pets.petSize": "large",
+    "vscode-pets.petType": "dog",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "spellchecker.ignoreWordsList": [
+        "Zipkin",
+        "frontend"
+    ],
+    "files.watcherExclude": {
+        "**/venv/**": true,
+        "**/virtualenv_run/**": true,
+        "**/virtualenv/**": true
+    },
+    "diffEditor.wordWrap": "on",
+    "editor.wordWrap": "on",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontWeight": null,
+    "eslint.alwaysShowStatus": true,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "[php]": {
+        "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+    },
+    "npm.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "editor.guides.indentation": false,
 }
