@@ -9,7 +9,7 @@ python = "^3.8"
 ansible = "^2.9"
 jinja2 = "^2.10.3"
 pyyaml = "^5.3"
-certifi = "^2019.11.28"
+certifi = "^2022.12.7"
 
 [build-system]
 requires = ["poetry>=0.12"]
