@@ -56,3 +56,16 @@ https://cryptography.io/en/latest/installation/#debian-ubuntu
 install:
 - git
 - virtualenv
+
+## .zshrc
+
+```bash
+export APOLLO_TELEMETRY_DISABLED=1
+export PATH="/opt/homebrew/bin:$PATH"
+eval "$(starship init zsh)"
+alias devbox="ssh-A markl@devbox"
+alias gst="git status"
+alias gc="git commit -m"
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+```
